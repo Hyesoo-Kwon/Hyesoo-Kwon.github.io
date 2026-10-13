@@ -294,3 +294,45 @@ table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
 .v-survey img { max-width: 560px; }
 .v-todak { padding: 32px 20px; }
 .v-survey { padding: 20px; }
+
+/* print / PDF */
+@page { size: A4; margin: 12mm 12mm 14mm; }
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #f6f5f2; font-size: 14px; }
+  nav.top, .next-project, a.back { display: none !important; }
+  .wrap, .narrow { max-width: none; padding: 0; }
+  .hero { padding: 24px 0 28px; }
+  .hero h1 { font-size: 44px; }
+  .cards { gap: 14px; padding-bottom: 0; }
+  .card { grid-template-columns: 1fr 1.05fr; transform: none !important; break-inside: avoid; page-break-inside: avoid; border-radius: 16px; }
+  .card .visual { min-height: 0; max-height: none; padding: 20px; }
+  .card .body { padding: 22px 22px 18px; }
+  .card h2 { font-size: 21px; margin-bottom: 8px; }
+  .oneliner { font-size: 15px; margin-bottom: 12px; }
+  .glance { gap: 6px; margin-bottom: 14px; }
+  .glance li { font-size: 12.5px; }
+  .tags { margin-bottom: 10px; }
+  .card .more { display: none; }
+  .phone { max-width: 150px; border-width: 5px; border-radius: 20px; }
+  .share-wrap { max-width: 250px; }
+  .about { padding: 28px 0 0; margin-top: 18px; break-inside: avoid; }
+  .about-grid { grid-template-columns: repeat(3, 1fr); }
+  footer { padding: 18px 0 0; border-top: 0; }
+  .case-hero { padding: 8px 0 16px; }
+  .case-hero h1 { font-size: 34px; }
+  .meta { grid-template-columns: repeat(3, 1fr) !important; margin-top: 20px; }
+  .summary { margin-top: 18px; break-inside: avoid; }
+  .summary dl { grid-template-columns: 68px 1fr !important; }
+  .case-cover { padding: 20px; margin: 12px 0; break-inside: avoid; }
+  .case-cover img { max-width: 600px; }
+  .case-cover.phones .phone { max-width: 190px; }
+  .step { padding: 22px 0 0; }
+  .step h2 { font-size: 20px; margin-bottom: 10px; break-after: avoid; }
+  .step p, .step ul { font-size: 14px; }
+  .step li { margin-bottom: 4px; }
+  .step, figure, .stats, table.data, .flow, .callout, .retro ul { break-inside: avoid; }
+  .flow { grid-template-columns: repeat(4, 1fr) !important; }
+  .stats { grid-template-columns: repeat(3, 1fr) !important; }
+  footer .wrap::after { content: "hyesoo-kwon.github.io"; }
+}
