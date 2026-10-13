@@ -277,3 +277,12 @@ table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
 .stat-row b { display: block; font-size: 18px; letter-spacing: -0.01em; }
 .stat-row small { display: block; font-size: 11.5px; color: var(--muted); line-height: 1.45; margin-top: 2px; }
 .statcard .note { color: var(--faint); font-size: 11px; margin: 10px 0 0; text-align: center; }
+
+/* card visuals v3 */
+.v-share { background: var(--naeil); display: flex; align-items: center; justify-content: center; padding: 36px 28px; }
+.card .visual.v-share, .card .visual.v-survey { max-height: none; }
+.share-wrap { background: #fff; border-radius: 22px; padding: 12px; width: 100%; max-width: 330px; }
+.share-wrap img { width: 100%; }
+.v-survey { background: #fff; display: flex; flex-direction: column; justify-content: center; padding: 24px 20px 16px; }
+.v-survey img { width: 100%; }
+.v-caption { margin: 10px 0 0; font-size: 12px; color: #6b6b74; text-align: center; }
