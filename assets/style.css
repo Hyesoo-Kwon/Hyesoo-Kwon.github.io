@@ -247,3 +247,6 @@ table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
   .summary dd { margin-bottom: 12px; }
   .oneliner { font-size: 17px; }
 }
+
+.v-chart { background: #ffffff; align-items: center; padding: 28px; }
+.v-chart img { border-radius: 8px; }

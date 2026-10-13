@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASA DataFest 2024 · 권혜수 Portfolio</title>
+<meta name="description" content="온라인 교재 학습 로그에서 학습자가 어디서 멈추는지 찾고 개선안을 제안한 48시간 데이터 분석">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="brand" href="../">Hyesoo Kwon</a>
+    <ul>
+      <li><a href="../#work">Work</a></li>
+      <li><a href="../#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="narrow">
+    <a class="back" href="../#work">← 전체 프로젝트</a>
+    <h1>ASA DataFest 2024</h1>
+    <p class="lead">온라인 통계 교재 CourseKata의 학습 로그를 48시간 동안 분석해, 학습자가 어디서 멈추는지 찾고 무엇을 바꾸면 좋을지 제안했습니다.</p>
+    <dl class="meta">
+      <div><dt>기간</dt><dd>2024.04 · 48시간</dd></div>
+      <div><dt>역할</dt><dd>데이터 품질 점검, 통계 분석, 개선안 제안</dd></div>
+      <div><dt>결과</dt><dd>Grand Prize · Peer Award</dd></div>
+    </dl>
+    <section class="summary" aria-label="한눈에 보기">
+      <p class="summary-title">한눈에 보기</p>
+      <dl>
+        <dt>문제</dt><dd>점수만 봐서는 학습자가 어디서, 왜 막히는지 알 수 없었습니다.</dd>
+        <dt>해결</dt><dd>챕터별 정답률·풀이 시간·설문 무응답을 따라가고, 상위 10% 학습자와 나머지를 비교해 멈추는 구간을 찾았습니다.</dd>
+        <dt>내 역할</dt><dd>데이터 오류 점검, R과 Wilcoxon 검정으로 집단 비교, 개선안 정리</dd>
+        <dt>결과</dt><dd>후반부로 갈수록 정답률과 참여가 함께 떨어지는 구간을 확인하고, 취약 개념 추천·재수강자 지원·A/B 테스트를 제안해 대상과 피어 어워드를 받았습니다.</dd>
+      </dl>
+    </section>
+  </div>
+</header>
+
+<div class="wrap">
+  <figure class="case-cover" style="background: var(--naeil);">
+    <img src="../assets/img/datafest-chapter.jpg" alt="챕터가 지날수록 문항 정답률 중앙값과 문항당 풀이 시간 중앙값이 함께 줄어드는 그래프">
+    <figcaption>챕터별 정답률 중앙값(위)과 문항당 풀이 시간 중앙값(아래). 뒤로 갈수록 둘 다 내려갑니다.</figcaption>
+  </figure>
+</div>
+
+<article class="narrow">
+
+  <section class="step">
+    <p class="step-no">01 · 배경</p>
+    <h2>학습자가 막히는 곳을 데이터로 찾아 달라는 과제</h2>
+    <p>CourseKata는 대학 통계 수업에서 쓰는 온라인 교재입니다. 학습자가 문제를 풀고, 챕터마다 짧은 설문에 답한 기록이 남아 있었습니다. 교재와의 상호작용 대부분이 1~12장에 몰려 있어서 이 구간을 중심으로 봤습니다.</p>
+  </section>
+
+  <section class="step">
+    <p class="step-no">02 · 데이터 점검</p>
+    <h2>분석 전에 이상한 기록부터 확인했습니다</h2>
+    <p>새로운 패턴을 찾는 것도 중요했지만, 눈에 보이는 오류도 학습자의 불편을 보여 주는 단서일 수 있다고 봤습니다. 그래서 둘 다 보자고 제안했습니다.</p>
+    <ul>
+      <li>1,625명 중 1,096명이 같은 문제를 같은 초에 10번 이상 제출한 기록이 있었습니다.</li>
+      <li>'풀 수 있는 문제 수' 값이 같은 교재·같은 수업을 듣는 학생끼리도 달라 그대로 믿기 어려웠습니다.</li>
+      <li>챕터 점수(EOC)가 챕터 끝 문제만이 아니라 챕터 전체 비율로 계산된다는 점도 확인하고 해석에 반영했습니다.</li>
+    </ul>
+  </section>
+
+  <section class="step">
+    <p class="step-no">03 · 분석</p>
+    <h2>학습자는 한 번에 떠나지 않고, 조금씩 멈췄습니다</h2>
+    <ul>
+      <li>챕터가 지날수록 문항 정답률 중앙값은 1장 약 0.9에서 12장 약 0.6으로, 문항당 풀이 시간도 함께 줄었습니다. 덜 머물고 덜 맞히는 흐름입니다.</li>
+      <li>챕터 끝 설문에 답하지 않는 비율은 조금씩 늘다가, 새 단원(D 섹션)이 시작되는 지점에서 크게 뛰었습니다.</li>
+      <li>정답률 40% 미만인 어려운 문항에서는 상위 10% 학습자가 항상 더 잘 풀었고, 차이가 50%p를 넘는 문항도 있었습니다.</li>
+      <li>후반 챕터에서는 시간을 많이 쓴 학습자일수록 챕터 점수가 높았습니다(Wilcoxon 검정).</li>
+    </ul>
+  </section>
+
+  <figure class="case-cover" style="background: var(--naeil);">
+    <img src="../assets/img/datafest-survey.jpg" alt="챕터별 설문 응답 분포. 뒤 챕터로 갈수록 무응답 비율이 커진다">
+    <figcaption>챕터별 설문 응답 분포. 분홍색이 무응답이고, 뒤로 갈수록 커집니다.</figcaption>
+  </figure>
+
+  <section class="step">
+    <p class="step-no">04 · 제안</p>
+    <h2>멈추는 구간마다 다른 처방을 붙였습니다</h2>
+    <ul>
+      <li>어려운 개념에서 막히는 학습자에게는 그 개념을 보충할 자료와 문제를 추천합니다.</li>
+      <li>재수강한 학생의 점수는 처음과 뚜렷한 차이가 없었습니다(p = 0.3). 같은 방식을 반복하는 대신 다른 자료와 지원을 주자고 제안했습니다.</li>
+      <li>지금 결과는 상관관계라서, 변화를 작게 나눠 A/B 테스트로 효과를 확인하자고 했습니다. 어느 집단도 크게 불리해지지 않게 하는 것도 조건으로 넣었습니다.</li>
+    </ul>
+  </section>
+
+  <section class="step retro">
+    <p class="step-no">05 · 회고</p>
+    <h2>떠나는 지점은 숫자보다 흐름에서 보였습니다</h2>
+    <h3>배운 점</h3>
+    <ul>
+      <li>평균 점수만 봤다면 "후반이 어렵다"에서 끝났을 겁니다. 정답률, 풀이 시간, 설문 무응답을 챕터 순서대로 겹쳐 보니 어디서 손을 놓기 시작하는지가 보였습니다.</li>
+      <li>서서히 줄어드는 구간과 한 번에 뚝 떨어지는 구간은 원인도, 필요한 대응도 다르다는 걸 알게 됐습니다.</li>
+    </ul>
+    <h3>아쉬운 점과 다음 단계</h3>
+    <ul>
+      <li>참여 시간은 화면 활동이 2분 없으면 멈추는 지표라서, 종이에 풀고 있는 시간은 잡히지 않았습니다.</li>
+      <li>48시간 안에 제안까지 마쳐야 해서, 제안한 개선안의 효과는 직접 확인하지 못했습니다.</li>
+    </ul>
+  </section>
+
+  <div class="next-project">
+    <a href="mabc.html"><small>← 이전 프로젝트</small><b>BidFit · LaunchRadar</b></a>
+    <a href="../" style="text-align:right"><small>처음으로 →</small><b>전체 프로젝트</b></a>
+  </div>
+</article>
+
+<footer style="margin-top:72px">
+  <div class="wrap"><span>© 2026 권혜수 Hyesoo Kwon</span></div>
+</footer>
+
+</body>
+</html>
