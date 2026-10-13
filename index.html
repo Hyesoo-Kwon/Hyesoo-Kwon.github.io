@@ -4,249 +4,117 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>권혜수 Portfolio</title>
-<meta name="description" content="사용자가 멈추는 지점을 데이터로 찾고, 다시 찾아오게 만드는 운영과 서비스를 기획합니다.">
+<meta name="description" content="사용자가 반복해서 확인하고 조율하는 수고를 찾아, AI와 데이터로 줄이는 서비스를 기획합니다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<style>
-  :root {
-    --bg: #fbfaf8;
-    --surface: #ffffff;
-    --text: #1d1d1f;
-    --muted: #5f5f66;
-    --line: #e7e4df;
-    --accent: #5b4bdb;
-    --accent-soft: #eeebff;
-    --tag: #f2f0ec;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #121214;
-      --surface: #1b1b1f;
-      --text: #f2f2f4;
-      --muted: #a4a4ad;
-      --line: #2c2c33;
-      --accent: #a99cff;
-      --accent-soft: #26223f;
-      --tag: #24242a;
-    }
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
-    line-height: 1.7;
-    word-break: keep-all;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
-  nav strong { font-size: 15px; }
-  nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
-  nav a { color: var(--muted); text-decoration: none; }
-  nav a:hover { color: var(--text); }
-
-  header { padding: 88px 0 64px; }
-  .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .02em; margin: 0 0 16px; }
-  h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.3; letter-spacing: -0.02em; margin: 0 0 20px; }
-  .lead { font-size: 17px; color: var(--muted); max-width: 640px; margin: 0; }
-  .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-  .facts span { background: var(--tag); border-radius: 999px; padding: 6px 14px; font-size: 13px; }
-
-  section { padding: 56px 0; border-top: 1px solid var(--line); }
-  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 28px; }
-
-  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .principle { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
-  .principle b { display: block; font-size: 16px; margin-bottom: 8px; }
-  .principle p { margin: 0; font-size: 14px; color: var(--muted); }
-
-  .project { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; margin-bottom: 20px; }
-  .project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-  .project h3 { font-size: 20px; margin: 0; letter-spacing: -0.01em; }
-  .period { font-size: 13px; color: var(--muted); white-space: nowrap; }
-  .badge { display: inline-block; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 13px; border-radius: 6px; padding: 3px 10px; margin: 10px 0 4px; }
-  .role { font-size: 14px; color: var(--muted); margin: 6px 0 16px; }
-  .project dl { margin: 0; display: grid; grid-template-columns: 72px 1fr; gap: 10px 16px; font-size: 15px; }
-  .project dt { color: var(--accent); font-weight: 600; font-size: 13px; padding-top: 2px; }
-  .project dd { margin: 0; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
-  .tags span { background: var(--tag); border-radius: 6px; padding: 3px 9px; font-size: 12px; color: var(--muted); }
-
-  .links { margin: 16px 0 0; font-size: 14px; }
-  .links a { color: var(--accent); font-weight: 600; text-decoration: none; }
-  .links a:hover { text-decoration: underline; }
-
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
-  .card h3 { font-size: 15px; margin: 0 0 10px; }
-  .card ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--muted); }
-  .card li { margin-bottom: 4px; }
-
-  footer { padding: 40px 0 64px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
-
-  @media (max-width: 720px) {
-    .wrap { padding: 0 16px; }
-    nav ul { display: none; }
-    header { padding: 56px 0 40px; }
-    .principles, .grid2 { grid-template-columns: 1fr; }
-    .project { padding: 22px 18px; }
-    .project dl { grid-template-columns: 1fr; gap: 2px; }
-    .project dd { margin-bottom: 10px; }
-  }
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<nav>
+<nav class="top">
   <div class="wrap">
-    <strong>권혜수 Hyesoo Kwon</strong>
+    <a class="brand" href="./">권혜수 Hyesoo Kwon</a>
     <ul>
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
     </ul>
   </div>
 </nav>
 
-<header>
+<header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Data · Service Planning · Operations</p>
-    <h1>사용자가 멈추는 지점을 찾고,<br>다시 찾아오게 만드는 기획을 합니다.</h1>
-    <p class="lead">사용자가 반복해서 확인하고 조율하는 수고를 찾아, AI와 데이터로 줄이는 서비스를 기획합니다. 확인되지 않은 정보는 단정하지 않고, 사용자가 검토하고 이의를 제기할 수 있는 운영 구조까지 함께 설계합니다.</p>
+    <p class="eyebrow">Service Planning · AI · Data</p>
+    <h1>사용자가 멈추는 지점을 찾고,<br><span class="soft">다시 찾아오게 만드는</span> 기획을 합니다.</h1>
+    <p class="lead">반복해서 확인하고 조율하는 수고를 찾아 AI와 데이터로 줄입니다. 확인되지 않은 정보는 단정하지 않고, 사용자가 검토하고 이의를 제기할 수 있는 운영 구조까지 함께 설계합니다.</p>
     <div class="facts">
       <span>Virginia Tech · Computational Modeling &amp; Data Analytics</span>
       <span>ADsP 데이터분석 준전문가</span>
       <span>English · Native</span>
-      <span>ASA DataFest 2024 Grand Prize</span>
     </div>
   </div>
 </header>
 
-<section id="approach">
-  <div class="wrap">
-    <h2>How I Work</h2>
-    <div class="principles">
-      <div class="principle">
-        <b>멈추는 곳부터 찾기</b>
-        <p>평균 성과보다 사용자가 이탈하거나 막히는 구간을 먼저 봅니다. 눈에 띄는 오류도 불편의 단서로 다룹니다.</p>
+<main id="work" class="wrap">
+  <p class="label">Selected work</p>
+  <div class="cards">
+
+    <a class="card" href="projects/naeiljido.html">
+      <div class="visual v-naeil">
+        <img src="assets/img/naeil-diagnosis.png" alt="내일지도 입력 화면과 업무별 AI 노출 진단 화면">
       </div>
-      <div class="principle">
-        <b>확인과 가설 구분하기</b>
-        <p>관찰한 차이와 검증할 가설을 나누고, 개선 효과는 A/B 테스트처럼 확인할 방법과 함께 제안합니다.</p>
+      <div class="body">
+        <p class="kicker">2026 고용24 AI 고용서비스 해커톤 · 2인 팀</p>
+        <h2>내일지도 — AI 시대, 내 일의 지도</h2>
+        <p class="result">LLM 판정자 3개로 업무 31개를 시범 진단하고, 판정이 갈린 42%는 사람이 검수하는 구조로 설계</p>
+        <p class="desc">직업명 한 줄로 내 업무를 NCS 능력단위로 나누고, 업무마다 AI 노출 정도와 인접 직업, 고용24 공고·훈련과정을 이어 주는 서비스입니다.</p>
+        <div class="tags"><span>서비스 기획</span><span>LLM 평가 설계</span><span>NCS · 직업사전</span><span>Fleiss κ</span></div>
+        <span class="more">케이스 스터디 보기</span>
       </div>
-      <div class="principle">
-        <b>관점을 하나의 질문으로</b>
-        <p>팀원·고객의 서로 다른 요구를 공통 질문으로 묶어, 각자의 의견이 같은 목표에 기여하도록 정리합니다.</p>
+    </a>
+
+    <a class="card" href="projects/mabc.html">
+      <div class="visual v-mabc">
+        <div class="brief" aria-label="BidFit 브리핑 예시">
+          <div class="head"><span>BidFit · 오늘의 공고 브리핑</span><span>08:00</span></div>
+          <div class="row"><span class="pill go">Go</span><div><b>공고 A</b><small>필수 면허·지역 조건 충족 · 근거 URL 3건</small></div></div>
+          <div class="row"><span class="pill review">Review</span><div><b>공고 B</b><small>직접생산 확인서 보유 여부 확인 필요</small></div></div>
+          <div class="row"><span class="pill nogo">No-go</span><div><b>공고 C</b><small>지역 제한 불충족 (blocker)</small></div></div>
+          <p class="note">구조를 설명하기 위한 예시 화면입니다.</p>
+        </div>
       </div>
-    </div>
+      <div class="body">
+        <p class="kicker">Upstage MABC 2026 · 2인 팀 팀장</p>
+        <h2>BidFit — 근거 없이 Go를 내지 않는 AI 업무 스킬</h2>
+        <p class="result">확인되지 않은 조건은 단정하지 않고 Review로 남겨, 사람이 판단할 지점을 분명히 한 공고 검토 에이전트</p>
+        <p class="desc">나라장터 공고와 회사 조건을 대조해 Go / Review / No-go로 나누고, 근거 URL·다음 행동·제안서 초안을 매일 아침 브리핑으로 전달합니다.</p>
+        <div class="tags"><span>Solar Pro4</span><span>AI Agent</span><span>MCP</span><span>워크플로 설계</span></div>
+        <span class="more">케이스 스터디 보기</span>
+      </div>
+    </a>
+
+    <a class="card" href="projects/todaktodak.html">
+      <div class="visual v-todak">
+        <img src="assets/img/todak-schedule.png" alt="토닥토닥 일정 상세 화면: 준비물 체크와 동행 수락">
+        <img src="assets/img/todak-request.png" alt="토닥토닥 가족 부탁 화면: 필요한 일을 가족이 나눠 맡기">
+      </div>
+      <div class="body">
+        <p class="kicker">제13회 전국 ICT융합 공모전 · 모두의 AI 실험실 · 5인 팀 팀장</p>
+        <h2>토닥토닥 — 가족이 함께 챙기는 어르신의 하루</h2>
+        <p class="result">AI가 일정 후보를 뽑고, 가족이 원문과 대조해 확인한 일정만 저장하는 돌봄 서비스</p>
+        <p class="desc">병원 안내를 공유한 뒤에도 동행과 준비물을 다시 연락해 정해야 하는 가족의 조율 부담을, 확인부터 역할 분담까지 하나의 흐름으로 묶었습니다.</p>
+        <div class="tags"><span>PRD · 사용자 흐름</span><span>Next.js</span><span>Gemma 4 · Whisper</span><span>개인정보 보호 설계</span></div>
+        <span class="more">케이스 스터디 보기</span>
+      </div>
+    </a>
+
   </div>
-</section>
+</main>
 
-<section id="projects">
+<section id="about" class="about">
   <div class="wrap">
-    <h2>Projects</h2>
-
-    <article class="project">
-      <div class="project-head">
-        <h3>내일지도 — AI 시대, 내 일의 지도</h3>
-        <span class="period">2026.09 – 2026.10 · 2인 팀</span>
-      </div>
-      <p class="role">2026 고용24 국민참여 AI 고용서비스 발굴 온라인 해커톤 · 팀 해보고24</p>
-      <dl>
-        <dt>문제</dt>
-        <dd>AI는 직업 전체보다 일부 업무를 바꾸지만, 내 업무 중 무엇이 바뀌는지 진단하고 고용24 공고·훈련으로 이어 주는 서비스가 없었습니다.</dd>
-        <dt>기획</dt>
-        <dd>직업명 한 줄로 업무를 NCS 능력단위로 나누고, 업무별 AI 노출 정도와 사람 중심 업무가 많은 인접 직업, 공고·훈련과정까지 연결하는 서비스를 설계했습니다.</dd>
-        <dt>검증</dt>
-        <dd>관점이 다른 LLM 판정자 3개로 사무·상담 직업 4개, 능력단위 31개를 시범 진단했습니다. Fleiss 카파 0.43을 확인하고, 판정이 갈린 42%는 사람 검수로 넘기도록 설계했습니다.</dd>
-        <dt>운영</dt>
-        <dd>업무마다 이의 버튼을 두고, 이의가 쌓인 업무는 다시 검수합니다. 입력 문장은 저장하지 않고 이의·클릭만 익명으로 집계합니다.</dd>
-      </dl>
-      <div class="tags"><span>서비스 기획</span><span>NCS · 한국직업사전</span><span>LLM 평가 설계</span><span>Fleiss kappa</span><span>Python</span></div>
-    </article>
-
-    <article class="project">
-      <div class="project-head">
-        <h3>MABC 2026 — 근거를 남기는 AI 업무 스킬</h3>
-        <span class="period">2026.08 · 2인 팀 팀장</span>
-      </div>
-      <p class="role">Upstage Making AI Beneficial Challenge · Solar Pro4 기반 스킬 출품</p>
-      <dl>
-        <dt>BidFit</dt>
-        <dd>나라장터 공고와 회사 조건을 대조해 우선 검토할 공고의 선정 이유, 미확인 자격, 제안 초안을 Telegram 브리핑으로 전달합니다.</dd>
-        <dt>LaunchRadar</dt>
-        <dd>제품명과 아이디어를 KIPRIS 상표·특허, arXiv 연구와 대조해 출시 전 확인사항과 차별화 가설, 검증 계획을 정리합니다.</dd>
-        <dt>원칙</dt>
-        <dd>확인되지 않은 자격이나 권리 상태는 단정하지 않고, 원문 근거와 함께 표시해 사용자가 검토 후 판단하도록 설계했습니다.</dd>
-        <dt>역할</dt>
-        <dd>두 스킬의 문제 정의, 워크플로, 데이터 출처, 재현 방법을 제출 자료로 통합했습니다.</dd>
-      </dl>
-      <div class="tags"><span>Solar Pro4</span><span>AI Agent</span><span>MCP</span><span>워크플로 설계</span><span>QA</span></div>
-    </article>
-
-    <article class="project">
-      <div class="project-head">
-        <h3>토닥토닥 — 가족이 함께 챙기는 어르신의 하루</h3>
-        <span class="period">2026.08 – 2026.09 · 5인 팀 팀장</span>
-      </div>
-      <p class="role">제13회 전국 ICT융합 공모전 · 2026 모두의 AI 실험실 AI 서비스 경진대회 출품</p>
-      <dl>
-        <dt>문제</dt>
-        <dd>병원 안내를 가족 대화방에 공유해도 동행 담당과 준비물을 다시 정해야 하고, 확인과 조율이 특정 가족에게 몰렸습니다.</dd>
-        <dt>설계</dt>
-        <dd>PRD와 사용자 흐름을 작성하고, 안내 확인부터 역할 분담까지 하나의 흐름으로 연결했습니다. 사진·녹음·문자에서 AI가 일정 후보를 뽑되, 애매한 날짜는 ‘확인 필요’로 표시해 원문과 대조한 뒤 확정하도록 했습니다.</dd>
-        <dt>구현</dt>
-        <dd>Next.js 초기 웹과 카카오 로그인·가족 생성·초대 기능을 구현하고, 시연 영상과 사업계획서를 제작했습니다.</dd>
-        <dt>운영 정책</dt>
-        <dd>가족별 접근 권한, 건강정보 공유 동의, 원문 자동 삭제 정책과 오류 재현·재검증 흐름을 20장 기획서로 정리했습니다.</dd>
-      </dl>
-      <div class="tags"><span>서비스 기획</span><span>PRD</span><span>Next.js</span><span>Kakao OAuth</span><span>Gemma 4 · Whisper</span><span>개인정보 보호 설계</span></div>
-    </article>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <h2>Skills &amp; Background</h2>
-    <div class="grid2">
-      <div class="card">
-        <h3>Data</h3>
-        <ul>
-          <li>R (dplyr, ggplot2, Shiny), Python (pandas, scikit-learn)</li>
-          <li>통계 검정, 회귀·트리 모델, PCA</li>
-          <li>ArcGIS, 공공데이터 결합·시각화</li>
-        </ul>
-      </div>
-      <div class="card">
+    <p class="label">About</p>
+    <div class="about-grid">
+      <div>
         <h3>Planning &amp; AI</h3>
         <ul>
           <li>PRD, 사용자 흐름, 운영 정책 설계</li>
           <li>LLM 활용 기획, 프롬프트·워크플로 설계, MCP</li>
+          <li>LLM 판정 일치도 검증, 사람 검수 설계</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Data &amp; Build</h3>
+        <ul>
+          <li>R, Python, 통계 검정·회귀 모델</li>
+          <li>공공데이터 결합·시각화</li>
           <li>Next.js 프로토타입, 시연 영상 제작</li>
         </ul>
       </div>
-      <div class="card">
-        <h3>Education</h3>
+      <div>
+        <h3>Background</h3>
         <ul>
-          <li>Virginia Tech, B.S. Computational Modeling &amp; Data Analytics (2019–2024)</li>
-          <li>Minor in Statistics</li>
-          <li>Branksome Hall Asia, IB 교육과정 (2016–2019)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Certificate &amp; Language</h3>
-        <ul>
-          <li>ADsP 데이터분석 준전문가 (2026.03)</li>
-          <li>English — Native</li>
-          <li>Korean — Native</li>
+          <li>Virginia Tech, B.S. Computational Modeling &amp; Data Analytics, Minor in Statistics (2019–2024)</li>
+          <li>ASA DataFest 2024 Grand Prize · Peer Award</li>
+          <li>ADsP (2026.03) · English Native</li>
         </ul>
       </div>
     </div>
@@ -254,7 +122,7 @@
 </section>
 
 <footer>
-  <div class="wrap">© 2026 권혜수 Hyesoo Kwon</div>
+  <div class="wrap"><span>© 2026 권혜수 Hyesoo Kwon</span></div>
 </footer>
 
 </body>
