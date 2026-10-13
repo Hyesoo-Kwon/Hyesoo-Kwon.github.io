@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>권혜수 Portfolio</title>
+<meta name="description" content="사용자가 멈추는 지점을 데이터로 찾고, 다시 찾아오게 만드는 운영과 서비스를 기획합니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --text: #1d1d1f;
+    --muted: #5f5f66;
+    --line: #e7e4df;
+    --accent: #5b4bdb;
+    --accent-soft: #eeebff;
+    --tag: #f2f0ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121214;
+      --surface: #1b1b1f;
+      --text: #f2f2f4;
+      --muted: #a4a4ad;
+      --line: #2c2c33;
+      --accent: #a99cff;
+      --accent-soft: #26223f;
+      --tag: #24242a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+    line-height: 1.7;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  nav strong { font-size: 15px; }
+  nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--text); }
+
+  header { padding: 88px 0 64px; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .02em; margin: 0 0 16px; }
+  h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.3; letter-spacing: -0.02em; margin: 0 0 20px; }
+  .lead { font-size: 17px; color: var(--muted); max-width: 640px; margin: 0; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+  .facts span { background: var(--tag); border-radius: 999px; padding: 6px 14px; font-size: 13px; }
+
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 28px; }
+
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .principle { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .principle b { display: block; font-size: 16px; margin-bottom: 8px; }
+  .principle p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  .project { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; margin-bottom: 20px; }
+  .project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .project h3 { font-size: 20px; margin: 0; letter-spacing: -0.01em; }
+  .period { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .badge { display: inline-block; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 13px; border-radius: 6px; padding: 3px 10px; margin: 10px 0 4px; }
+  .role { font-size: 14px; color: var(--muted); margin: 6px 0 16px; }
+  .project dl { margin: 0; display: grid; grid-template-columns: 72px 1fr; gap: 10px 16px; font-size: 15px; }
+  .project dt { color: var(--accent); font-weight: 600; font-size: 13px; padding-top: 2px; }
+  .project dd { margin: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .tags span { background: var(--tag); border-radius: 6px; padding: 3px 9px; font-size: 12px; color: var(--muted); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .card h3 { font-size: 15px; margin: 0 0 10px; }
+  .card ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--muted); }
+  .card li { margin-bottom: 4px; }
+
+  footer { padding: 40px 0 64px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+
+  @media (max-width: 720px) {
+    .wrap { padding: 0 16px; }
+    nav ul { display: none; }
+    header { padding: 56px 0 40px; }
+    .principles, .grid2 { grid-template-columns: 1fr; }
+    .project { padding: 22px 18px; }
+    .project dl { grid-template-columns: 1fr; gap: 2px; }
+    .project dd { margin-bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <strong>권혜수 Hyesoo Kwon</strong>
+    <ul>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Data · Service Planning · Operations</p>
+    <h1>사용자가 멈추는 지점을 찾고,<br>다시 찾아오게 만드는 기획을 합니다.</h1>
+    <p class="lead">행동 데이터에서 참여가 끊기는 구간을 찾고, 개선안을 검증 가능한 형태로 제안합니다. 데이터 분석과 AI 서비스 기획, 이해관계자 협업 경험을 사용자 경험 개선으로 연결해 왔습니다.</p>
+    <div class="facts">
+      <span>Virginia Tech · Computational Modeling &amp; Data Analytics</span>
+      <span>ADsP 데이터분석 준전문가</span>
+      <span>English · Native</span>
+      <span>ASA DataFest 2024 Grand Prize</span>
+    </div>
+  </div>
+</header>
+
+<section id="approach">
+  <div class="wrap">
+    <h2>How I Work</h2>
+    <div class="principles">
+      <div class="principle">
+        <b>멈추는 곳부터 찾기</b>
+        <p>평균 성과보다 사용자가 이탈하거나 막히는 구간을 먼저 봅니다. 눈에 띄는 오류도 불편의 단서로 다룹니다.</p>
+      </div>
+      <div class="principle">
+        <b>확인과 가설 구분하기</b>
+        <p>관찰한 차이와 검증할 가설을 나누고, 개선 효과는 A/B 테스트처럼 확인할 방법과 함께 제안합니다.</p>
+      </div>
+      <div class="principle">
+        <b>관점을 하나의 질문으로</b>
+        <p>팀원·고객의 서로 다른 요구를 공통 질문으로 묶어, 각자의 의견이 같은 목표에 기여하도록 정리합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>ASA DataFest 2024 — 학습자는 어디에서 막히는가</h3>
+        <span class="period">2024.04 · 48시간 · 5인 팀</span>
+      </div>
+      <span class="badge">Grand Prize · Peer Award</span>
+      <p class="role">역할: 데이터 품질 점검, 통계 분석, 개선안 제안</p>
+      <dl>
+        <dt>문제</dt>
+        <dd>온라인 학습 서비스 CourseKata에서 오래 공부해도 어려운 문항에서 계속 막히는 학습자가 있었지만, 점수만으로는 어떤 도움이 필요한지 알기 어려웠습니다.</dd>
+        <dt>분석</dt>
+        <dd>결측·중복·비정상 기록을 점검하고, R과 Wilcoxon 검정으로 상위 10% 학습자와 일반 학습자의 참여 시간·성과를 비교했습니다.</dd>
+        <dt>발견</dt>
+        <dd>학습 후반으로 갈수록 참여와 성과가 함께 떨어지고, 고난도 문항에서 두 집단의 격차가 커졌습니다.</dd>
+        <dt>제안</dt>
+        <dd>취약 개념별 추천, 재수강자 지원, 그리고 개선 효과를 확인할 A/B 테스트를 제안했습니다.</dd>
+      </dl>
+      <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span><span>Wilcoxon test</span><span>사용자 행동 분석</span><span>A/B 테스트 설계</span></div>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>토닥토닥 — 가족이 함께 챙기는 어르신의 하루</h3>
+        <span class="period">2026.08 – 2026.09 · 5인 팀 팀장</span>
+      </div>
+      <p class="role">제13회 전국 ICT융합 공모전 · 2026 모두의 AI 실험실 AI 서비스 경진대회 출품</p>
+      <dl>
+        <dt>문제</dt>
+        <dd>병원 안내를 가족 대화방에 공유해도 동행 담당과 준비물을 다시 정해야 하고, 확인과 조율이 특정 가족에게 몰렸습니다.</dd>
+        <dt>설계</dt>
+        <dd>PRD와 사용자 흐름을 작성하고, 안내 확인부터 역할 분담까지 하나의 흐름으로 연결했습니다. 사진·녹음·문자에서 AI가 일정 후보를 뽑되, 애매한 날짜는 ‘확인 필요’로 표시해 원문과 대조한 뒤 확정하도록 했습니다.</dd>
+        <dt>구현</dt>
+        <dd>Next.js 초기 웹과 카카오 로그인·가족 생성·초대 기능을 구현하고, 시연 영상과 사업계획서를 제작했습니다.</dd>
+        <dt>운영 정책</dt>
+        <dd>가족별 접근 권한, 건강정보 공유 동의, 원문 자동 삭제 정책과 오류 재현·재검증 흐름을 20장 기획서로 정리했습니다.</dd>
+      </dl>
+      <div class="tags"><span>서비스 기획</span><span>PRD</span><span>Next.js</span><span>Kakao OAuth</span><span>Gemma 4 · Whisper</span><span>개인정보 보호 설계</span></div>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>MABC 2026 — 근거를 남기는 AI 업무 스킬</h3>
+        <span class="period">2026.08 · 2인 팀 팀장</span>
+      </div>
+      <p class="role">Upstage Making AI Beneficial Challenge · Solar Pro4 기반 스킬 출품</p>
+      <dl>
+        <dt>BidFit</dt>
+        <dd>나라장터 공고와 회사 조건을 대조해 우선 검토할 공고의 선정 이유, 미확인 자격, 제안 초안을 Telegram 브리핑으로 전달합니다.</dd>
+        <dt>LaunchRadar</dt>
+        <dd>제품명과 아이디어를 KIPRIS 상표·특허, arXiv 연구와 대조해 출시 전 확인사항과 차별화 가설, 검증 계획을 정리합니다.</dd>
+        <dt>원칙</dt>
+        <dd>확인되지 않은 자격이나 권리 상태는 단정하지 않고, 원문 근거와 함께 표시해 사용자가 검토 후 판단하도록 설계했습니다.</dd>
+        <dt>역할</dt>
+        <dd>두 스킬의 문제 정의, 워크플로, 데이터 출처, 재현 방법을 제출 자료로 통합했습니다.</dd>
+      </dl>
+      <div class="tags"><span>Solar Pro4</span><span>AI Agent</span><span>MCP</span><span>워크플로 설계</span><span>QA</span></div>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>Black BRAND 협업 — Hampton Roads 식량 불안 분석</h3>
+        <span class="period">2023.02 – 2023.05 · 캡스톤 4인 팀</span>
+      </div>
+      <p class="role">역할: 데이터 통합·시각화, 고객 커뮤니케이션</p>
+      <dl>
+        <dt>문제</dt>
+        <dd>지역단체가 한정된 식량 지원 자원을 어디에 먼저 배치할지 판단해야 했습니다. 푸드뱅크의 수보다 지원이 필요한 지역과 실제 거점의 연결에 주목했습니다.</dd>
+        <dt>분석</dt>
+        <dd>ACS·USDA·Google Maps API 데이터를 수집·정제·결합하고, R Shiny·ArcGIS로 빈곤율, 시설 분포, 슈퍼마켓 접근성, 교육 수준을 시각화했습니다.</dd>
+        <dt>협업</dt>
+        <dd>고객 미팅 조율, 회의록 작성, 중간·최종 발표를 맡아 현장 요구를 분석 결과에 반영했습니다.</dd>
+      </dl>
+      <div class="tags"><span>R Shiny</span><span>leaflet</span><span>ArcGIS</span><span>공공데이터</span><span>대시보드</span><span>이해관계자 협업</span></div>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>미국 뮤추얼펀드 수익률 예측과 핵심 변수 분석</h3>
+        <span class="period">2024.03 – 2024.05 · 교과 프로젝트</span>
+      </div>
+      <dl>
+        <dt>분석</dt>
+        <dd>약 8만 건, 298개 변수를 정제해 15개 핵심 후보 변수를 고르고, Decision Tree와 LASSO 모델을 교차검증으로 비교했습니다.</dd>
+        <dt>결과</dt>
+        <dd>테스트 RMSE는 LASSO 약 3.95%, Decision Tree 약 4.09%였습니다. 과거 수익률과 자산 배분이 주요 변수임을 도출하고, 해석 가능성과 예측 성능의 trade-off를 설명했습니다.</dd>
+      </dl>
+      <div class="tags"><span>R</span><span>glmnet</span><span>rpart</span><span>Cross-validation</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills &amp; Background</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Data</h3>
+        <ul>
+          <li>R (dplyr, ggplot2, Shiny), Python (pandas, scikit-learn)</li>
+          <li>통계 검정, 회귀·트리 모델, PCA</li>
+          <li>ArcGIS, 공공데이터 결합·시각화</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Planning &amp; AI</h3>
+        <ul>
+          <li>PRD, 사용자 흐름, 운영 정책 설계</li>
+          <li>LLM 활용 기획, 프롬프트·워크플로 설계, MCP</li>
+          <li>Next.js 프로토타입, 시연 영상 제작</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Education</h3>
+        <ul>
+          <li>Virginia Tech, B.S. Computational Modeling &amp; Data Analytics (2019–2024)</li>
+          <li>Minor in Statistics</li>
+          <li>Branksome Hall Asia, IB 교육과정 (2016–2019)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Certificate &amp; Language</h3>
+        <ul>
+          <li>ADsP 데이터분석 준전문가 (2026.03)</li>
+          <li>English — Native</li>
+          <li>Korean — Native</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 권혜수 Hyesoo Kwon</div>
+</footer>
+
+</body>
+</html>
