@@ -125,14 +125,22 @@ nav.top ul a:hover, nav.top ul a[aria-current] { color: var(--text); }
 /* briefing mock (MABC) */
 .brief { width: 100%; max-width: 340px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; font-size: 13px; }
 .brief .head { display: flex; justify-content: space-between; color: var(--faint); font-size: 12px; margin-bottom: 12px; }
-.brief .row { display: grid; grid-template-columns: 62px 1fr; gap: 10px; align-items: start; padding: 10px 0; border-top: 1px solid var(--line); }
+.brief .row { display: grid; grid-template-columns: 72px 1fr; gap: 10px; align-items: start; padding: 10px 0; border-top: 1px solid var(--line); }
 .brief .row b { display: block; font-size: 13px; }
 .brief .row small { color: var(--muted); font-size: 12px; line-height: 1.5; display: block; }
-.pill { display: inline-block; text-align: center; font-weight: 700; font-size: 11px; border-radius: 6px; padding: 3px 0; width: 62px; }
+.pill { display: inline-block; text-align: center; font-weight: 700; font-size: 11px; border-radius: 6px; padding: 3px 0; width: 72px; }
 .pill.go { color: var(--go); background: var(--go-bg); }
 .pill.review { color: var(--review); background: var(--review-bg); }
 .pill.nogo { color: var(--nogo); background: var(--nogo-bg); }
 .brief .note { color: var(--faint); font-size: 11px; margin-top: 8px; }
+
+.pill.ids { color: var(--accent); background: var(--accent-soft); }
+.brief-stack { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 12px; }
+.brief-stack .brief { max-width: none; padding: 14px 16px; }
+.brief-stack .brief .row { padding: 8px 0; }
+.brief-stack .note { color: var(--faint); font-size: 11px; margin: 0; text-align: center; }
+.brief-pair { display: flex; justify-content: center; align-items: flex-start; gap: 20px; flex-wrap: wrap; padding: 48px 24px; }
+.brief-pair .brief { max-width: 380px; font-size: 14px; }
 
 /* about strip */
 .about { padding: 72px 0; border-top: 1px solid var(--line); margin-top: 48px; }
@@ -218,3 +226,5 @@ table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
   .stats { grid-template-columns: 1fr; }
   .flow { grid-template-columns: 1fr 1fr; }
 }
+
+.card .visual.v-mabc { max-height: none; }
