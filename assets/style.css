@@ -325,14 +325,37 @@ table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
   .summary { margin-top: 18px; break-inside: avoid; }
   .summary dl { grid-template-columns: 68px 1fr !important; }
   .case-cover { padding: 20px; margin: 12px 0; break-inside: avoid; }
-  .case-cover img { max-width: 600px; }
-  .case-cover.phones .phone { max-width: 190px; }
+  .case-cover img { max-width: 470px; }
+  .case-cover { padding: 16px; }
+  .case-hero .lead { font-size: 15px; }
+  .case-cover.phones .phone { max-width: 160px; }
   .step { padding: 22px 0 0; }
   .step h2 { font-size: 20px; margin-bottom: 10px; break-after: avoid; }
   .step p, .step ul { font-size: 14px; }
   .step li { margin-bottom: 4px; }
-  .step, figure, .stats, table.data, .flow, .callout, .retro ul { break-inside: avoid; }
+  figure, .case-cover, .stats, table.data, .flow, .callout, .summary, .meta { break-inside: avoid; }
+  .step-no, .step h2, .retro h3 { break-after: avoid; page-break-after: avoid; }
+  .step li { break-inside: avoid; }
   .flow { grid-template-columns: repeat(4, 1fr) !important; }
   .stats { grid-template-columns: repeat(3, 1fr) !important; }
   footer .wrap::after { content: "hyesoo-kwon.github.io"; }
+}
+@media print {
+  body { background: #fff !important; }
+  .hero { padding: 8px 0 18px; }
+  .hero h1 { font-size: 38px; margin-bottom: 16px; }
+  .hero .lead { font-size: 15px; }
+  .facts { margin-top: 18px; }
+  .label { margin-bottom: 14px; }
+  .card .visual { padding: 14px; }
+  .card .body { padding: 18px 20px 14px; }
+  .phone { max-width: 118px; border-width: 4px; border-radius: 16px; }
+  .v-phones, .v-todak { gap: 12px; }
+  .share-wrap { max-width: 200px; padding: 8px; }
+  .v-survey img { max-width: 320px; }
+  .v-caption { font-size: 10px; margin-top: 6px; }
+  .brief-stack { max-width: 290px; gap: 8px; }
+  .brief-stack .brief { padding: 10px 12px; font-size: 12px; }
+  .brief-stack .brief .row { padding: 5px 0; }
+  .card .tags span { font-size: 11px; }
 }
